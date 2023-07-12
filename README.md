@@ -1,3 +1,6 @@
+The link to Google Colab showing the results is:
+https://colab.research.google.com/drive/17O_JEkJbWNKxI7_brGSgvJVpDvxxGm18?usp=sharing#scrollTo=1pCSdVMTxvXZ
+
 The code implements a news recommendation and discussion system using Python. It begins by allowing the user to input a specific news topic of interest. The system then retrieves relevant articles from a specified source using the News API. The text data is cleaned and preprocessed for analysis.
 
 To determine the relevance of the articles, the code utilizes BERT, a language model that encodes the user's query and the titles of the articles. Cosine similarity is calculated between the query and each article's title, resulting in similarity scores.
