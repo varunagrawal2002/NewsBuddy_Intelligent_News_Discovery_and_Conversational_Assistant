@@ -1,3 +1,5 @@
+After cloning, run the app.py file.
+Note: I used python 3.7.
 The link to Google Colab showing the results is:
 https://colab.research.google.com/drive/17O_JEkJbWNKxI7_brGSgvJVpDvxxGm18?usp=sharing#scrollTo=1pCSdVMTxvXZ
 
