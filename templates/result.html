@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2 {
+            color: #333333;
+            font-size: 24px; /* Increase font size */
+            margin-top: 30px;
+        }
+        .article-container {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+        }
+        h3 {
+            color: #009688;
+            margin-top: 0;
+        }
+        p {
+            margin: 10px 0;
+            color: #666666;
+            word-wrap: break-word;
+        }
+        a {
+            color: #007bff; /* Change link color to blue */
+            text-decoration: underline;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #999999; /* Change button color to grey */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        #chatOutput {
+            margin-top: 20px;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Search Results</h2>
+    {% for article in articles %}
+        <div class="article-container">
+            <h3>{{ article['title'] }}</h3>
+            <p>URL: <a href="{{ article['url'] }}" target="_blank">{{ article['url'] }}</a></p>
+            <!-- Add other details as needed -->
+
+            <!-- Unique IDs for each form and chat output -->
+            <form id="chatForm{{ loop.index }}" onsubmit="return submitChat('{{ loop.index }}')">
+                <input type="text" id="userMessage{{ loop.index }}" name="user_message" required>
+                <button type="submit">Ask a Question</button>
+            </form>
+            <div id="chatOutput{{ loop.index }}"></div>
+        </div>
+    {% endfor %}
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
